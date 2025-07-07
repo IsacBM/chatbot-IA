@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZacksIDE - Teste e Valide seus Códigos!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="infos">
+            <span class="titulo"><i class="bi bi-robot"></i> ZacksIDE</span>
+        </div>
+        <div class="opcoes">
+        </div>
+        <div class="toggle">
+            <input type="checkbox" />
+            <label></label>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-layout-container">
+            <div id="editor-and-terminal-container">
+                <div id="editor"></div>
+                <div id="output-terminal-container" class="output-terminal-container">
+                    <div class="terminal-header">
+                        <h3>Saída do Código:</h3>
+                        <button onclick="executeCode()" title="Executar Código"><i class="bi bi-play-fill"></i> Executar</button>
+                    </div>
+                    <pre id="output-terminal-content" class="output-terminal-content"></pre>
+                </div>
+            </div>
+
+            <div id="chatbot-container" class="chatbot-container">
+                <div class="chatbot-header">
+                    <h3 class="efeito-gradiente"><i class="bi bi-robot"></i> ZackBot</h3>
+                    <span>Seja bem-vindo(a) Sr. Isac!</span>
+                    </div>
+                <div id="chat-messages" class="chat-messages"></div>
+                <div class="chat-input">
+                    <div class="area-texto">
+                        <input type="text" id="user-input" placeholder="Tire sua dúvida...">
+                        <div class="botoes">
+                            <button onclick="sendMessageAudio()"><i class="bi bi-mic-fill"></i></button>
+                            <button onclick="sendMessage()"><i class="bi bi-send-fill"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="lado-esquerdo">
+            <span><i class="bi bi-code"></i> Isac B. Matos - Desenvolvedor | <span id="ano">2025</span></span>
+        </div>
+        <div class="lado-direito">
+            <a href=""><i class="bi bi-github"></i> Github</a>
+            <a href=""><i class="bi bi-instagram"></i> Instagram</a>
+            <a href=""><i class="bi bi-linkedin"></i> LinkedIn</a>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.49.0/min/vs/loader.js"></script>
+
+    <script>
+        require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.49.0/min/vs' } });
+
+        require(['vs/editor/editor.main'], function () {
+            window.monacoEditorInstance = monaco.editor.create(document.getElementById('editor'), {
+                value: [
+                    '# Digite seu código Python aqui!',
+                    'print("Olá Mundo!")',
+                    '',
+                    ''
+                ].join('\n'),
+                language: 'python', // Define a linguagem padrão para Python
+                theme: 'vs-dark',       // Define o tema
+                automaticLayout: true   // Garante que o editor se ajuste automaticamente ao redimensionar
+            });
+        });
+    </script>
+</body>
+</html>
