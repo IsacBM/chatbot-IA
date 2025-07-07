@@ -96,3 +96,4 @@ Contribuições são bem-vindas! Sinta-se à vontade para:
 - Reportar problemas
 - Sugerir melhorias
 - Enviar pull requests
+
