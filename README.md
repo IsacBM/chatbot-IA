@@ -1,4 +1,4 @@
-# chatbot-IA
+# ChatBot Para Discussão e Explicação de Códigos!
 
 Prova feita com base no projeto passado pelo **[Prof. Ronaldo Borges](https://github.com/profRonaldoIFPI)**, apenas com algumas alterações e ajustes para se adequar ao tema que gostaria de criar! Veja essa base no seu repositório: **[Link para o Repositório](https://github.com/profRonaldoIFPI/TEI_4301_2024/tree/main/chat_bot)**
 
